@@ -1,3 +1,35 @@
-export const game = (moves: Array<string>): string => {
-  return "Player X is the winner!";
+/**
++---+---+---+
+| 0 | 1 | 2 |
++---+---+---+
+| 3 | 4 | 5 |
++---+---+---+
+| 6 | 7 | 8 |
++---+---+---+
+ */
+
+const winningCombinationList = [
+  "0,1,2",
+  "3,4,5",
+  "6,7,8",
+  "0,3,6",
+  "1,4,7",
+  "2,5,8",
+  "0,4,8",
+  "2,4,6",
+];
+
+export const game = (table: Array<string>): string => {
+  let winnerPlayer: string = "";
+  winningCombinationList.forEach((winningCombination) => {
+    const [firstTablePosition, secondTablePosition, thirdTablePosition] = winningCombination.split(",");
+    if (
+      table[firstTablePosition] !== "" &&
+      table[firstTablePosition] === table[secondTablePosition] &&
+      table[secondTablePosition] === table[thirdTablePosition]
+    ) {
+      winnerPlayer = `Player ${table[firstTablePosition]} is the winner!`;
+    }
+  });
+  return winnerPlayer;
 };
