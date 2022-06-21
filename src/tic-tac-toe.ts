@@ -22,8 +22,7 @@ const winningCombinationList = [
 export const game = (table: Array<string>): string => {
   let winnerPlayer: string = "";
   winningCombinationList.forEach((winningCombination) => {
-    const [firstTablePosition, secondTablePosition, thirdTablePosition] =
-      winningCombination.split(",");
+    const [firstTablePosition, secondTablePosition, thirdTablePosition] = winningCombination.split(",");
     if (
       table[firstTablePosition] !== "" &&
       table[firstTablePosition] === table[secondTablePosition] &&
@@ -32,8 +31,6 @@ export const game = (table: Array<string>): string => {
       winnerPlayer = `Player ${table[firstTablePosition]} is the winner!`;
     }
   });
-  if (winnerPlayer === "") {
-    winnerPlayer = "Tie!";
-  }
+  winnerPlayer ? undefined : (winnerPlayer = "Tie!");
   return winnerPlayer;
 };
