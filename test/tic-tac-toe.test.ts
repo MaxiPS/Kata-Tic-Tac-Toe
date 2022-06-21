@@ -6,4 +6,9 @@ describe("tic-tac-toe should", () => {
     const moves = ["X", "X", "X", "", "O", "O", "", "", ""];
     expect(game(moves)).toBe("Player X is the winner!");
   });
+
+  test("be the winner the player O", () => {
+    const moves = ["O", "O", "O", "", "X", "X", "", "", ""];
+    expect(game(moves)).toBe("Player O is the winner!");
+  });
 });
