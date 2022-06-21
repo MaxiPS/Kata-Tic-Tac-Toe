@@ -22,7 +22,8 @@ const winningCombinationList = [
 export const game = (table: Array<string>): string => {
   let winnerPlayer: string = "";
   winningCombinationList.forEach((winningCombination) => {
-    const [firstTablePosition, secondTablePosition, thirdTablePosition] = winningCombination.split(",");
+    const [firstTablePosition, secondTablePosition, thirdTablePosition] =
+      winningCombination.split(",");
     if (
       table[firstTablePosition] !== "" &&
       table[firstTablePosition] === table[secondTablePosition] &&
