@@ -32,5 +32,8 @@ export const game = (table: Array<string>): string => {
       winnerPlayer = `Player ${table[firstTablePosition]} is the winner!`;
     }
   });
+  if (winnerPlayer === "") {
+    winnerPlayer = "Tie!";
+  }
   return winnerPlayer;
 };
